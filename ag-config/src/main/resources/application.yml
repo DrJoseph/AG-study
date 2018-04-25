@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ag-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.oschina.net/geek_qi/AG-Config.git
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+    port: 8750 #启动端口

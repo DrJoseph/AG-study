@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: user-center
+  datasource:
+    name: test
+    url: jdbc:mysql://localhost:3306/ag_admin?useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 7771
+
+mybatis:
+    basepackage: com.github.wxiaoqi.learning.uc.mapper
+    xmlLocation: classpath:mapper/**/*.xml
+logging:
+  level:
+    com.github.wxiaoqi.learning.uc.mapper: debug
+
+
+jwt:
+  token-header: access-token
+  pub-key:
+    path: /Users/ace/git/ag-parent/ag-uc/src/main/resources/jwt/pub.key
+
+client:
+  id: user-center
+  secret: 123456
+  token-header: client-token
+  pub-key:
+    path: /Users/ace/git/ag-parent/ag-uc/src/main/resources/client/pub.key
